@@ -35,10 +35,10 @@ public class UsuarioController {
 		});
 
 		post("/usuarios", (request, response) -> {
-			response.type("application/json");
-			response.status(201);
 			UsuarioDTOInput usuarioDTOInput = objectMapper.readValue(request.body(), UsuarioDTOInput.class);
 			usuarioService.inserir(usuarioDTOInput);
+			response.type("application/json");
+			response.status(201);
 			return "Usuario criado com sucesso!";
 		});
 

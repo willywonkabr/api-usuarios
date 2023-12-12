@@ -27,7 +27,7 @@ public class UsuarioController {
 
 		get("/usuarios/:id", (request, response) -> {
 			String idUrl = request.params("id");
-			int id = Integer.valueOf(idUrl);
+			int id = Integer.parseInt(idUrl);
 			String respostaJson = objectMapper.writeValueAsString(usuarioService.buscar(id));
 			response.type("application/json");
 			response.status(200);
@@ -52,7 +52,7 @@ public class UsuarioController {
 
 		delete("/usuarios/:id", (request, response) -> {
 			String idUrl = request.params("id");
-			int idUsuario = Integer.valueOf(idUrl);
+			int idUsuario = Integer.parseInt(idUrl);
 			usuarioService.excluir(idUsuario);
 			response.type("application/json");
 			response.status(200);
